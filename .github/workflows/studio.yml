@@ -58,7 +58,7 @@ jobs:
         with:
           folder: ./.output/public
 
-  sync-gh-pages-to-master:
+  sync-gh-pages-to-main:
     needs: build-and-deploy
     runs-on: ubuntu-latest
 
@@ -75,10 +75,10 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
-      # Step 3: Merge gh-pages into Master
-      - name: Merge gh-pages into Master
+      # Step 3: Merge gh-pages into main
+      - name: Merge gh-pages into main
         run: |
           git fetch origin
-          git checkout master
-          git merge --no-ff gh-pages -m "Automated merge from gh-pages to master"
-          git push origin master
+          git checkout main
+          git merge --no-ff gh-pages -m "Automated merge from gh-pages to main"
+          git push origin main
